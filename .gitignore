@@ -50,3 +50,5 @@ pineapple-app/.env
 
 # Temporary files created by Metro to check the health of the file watcher
 .metro-health-check*
+./node_modules
+./package-lock.json
