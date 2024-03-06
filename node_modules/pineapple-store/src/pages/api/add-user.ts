@@ -2,28 +2,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 import { database } from "~/../firebase";
+import { APIResponse, User } from "./UserType";
 
-/**
- * Represents a user.
- */
-interface User {
-  uid: string;
-  displayName: string;
-  email: string;
-  phoneNumber: string;
-  photoURL: string;
-  metadata: {
-    creationTime: string;
-    lastSignInTime: string;
-  };
-}
 
-/**
- * Represents the response from the API.
- */
-interface APIResponse {
-  message: string;
-}
+
 
 /**
  * Handles the POST request to add a user to Firestore.
@@ -45,8 +27,6 @@ const handler = async (
 
       // Check if user document already exists
       const userDoc = await getDoc(userRef);
-      console.log('userDoc :>> ', userDoc);
-      console.log("Firebase document ID:", userDoc.id);
 
       // If user document doesn't exist, add user to Firestore
       if (!userDoc.exists()) {
@@ -61,15 +41,14 @@ const handler = async (
         });
 
         // Send success response
-        res.status(200).json({ message: "User added to Firestore" });
+        res.status(200).json({ status: 200, message: "User added to Firestore" });
       } else {
         // Send response indicating user already exists
-        res.status(400).json({ message: "User already exists in Firestore" });
+        res.status(400).json({  status: 400,message: "User already exists in Firestore" });
       }
     } catch (error) {
       // Log and send error response
-      console.error("Error adding user to Firestore:", error);
-      res.status(500).json({ error: "Internal server error" });
+      res.status(500).json({status:500, message: "Internal server error" });
     }
   }
 };

@@ -1,24 +1,18 @@
 // pages/api/get-user.ts
 
-import { NextApiRequest, NextApiResponse } from "next";
+import { type NextApiRequest, type NextApiResponse } from "next";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { database } from "~/../firebase";
+import { type UserResponseType, type User } from "./UserType";
 
-interface User {
-    uid?: string; // Make the uid property optional
-  }
 
-interface UserResponse {
-  user: User | null;
-}
 
 const handler = async (
   req: NextApiRequest,
-  res: NextApiResponse<UserResponse | { error: string }>,
+  res: NextApiResponse<UserResponseType | { error: string }>,
 ) => {
   if (req.method === "GET") {
     try {
-        console.log('req.query :>> ', req.query);
       // Access the user ID from the query parameters
       const { uid } = req.query;
 
@@ -29,7 +23,7 @@ const handler = async (
       const userDoc = await getDoc(userRef);
 
       if (userDoc.exists()) {
-        const userData = userDoc.data();
+        const userData = userDoc.data() as User;
         res.status(200).json({ user: userData });
       } else {
         res.status(404).json({ error: "User not found" });
