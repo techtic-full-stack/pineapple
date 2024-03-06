@@ -1,0 +1,12 @@
+{
+  "name": "pineapple",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/techtic-full-stack/pineapple.git",
+  "author": "Techtic Solutions",
+  "license": "MIT",
+  "workspaces": [
+    "pineapple-app",
+    "pineapple-web"
+  ]
+}
