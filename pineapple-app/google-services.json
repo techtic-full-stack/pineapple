@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "919022920074",
+    "project_id": "pineapple-28",
+    "storage_bucket": "pineapple-28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919022920074:android:eeee3cb0168406064c2873",
+        "android_client_info": {
+          "package_name": "com.maiuranloganathan.pineapplesocial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919022920074-admrggkiefn195qoamk8nedgs0c0ehc0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.maiuranloganathan.pineapplesocial",
+            "certificate_hash": "31308221ec30ab9248a527549a5b4db4cba8696a"
+          }
+        },
+        {
+          "client_id": "919022920074-josg89mt3lmd7d25198m8ddiv0br3be3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLjA8uXa69cD2O4hbJ4rjT6rgFwwNBiwE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919022920074-josg89mt3lmd7d25198m8ddiv0br3be3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "919022920074-rn0jn042p31qjluvvp8j272if4ums3go.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.maiuranloganathan.pineapplesocial"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
