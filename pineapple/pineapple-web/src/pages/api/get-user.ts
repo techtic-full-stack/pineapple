@@ -29,7 +29,6 @@ const handler = async (
         res.status(404).json({ error: "User not found" });
       }
     } catch (error) {
-      console.error("Error fetching user data:", error);
       res.status(500).json({ error: "Internal server error" });
     }
   } else {
