@@ -6,7 +6,6 @@
   "author": "Techtic Solutions",
   "license": "MIT",
   "workspaces": [
-    "pineapple-app",
-    "pineapple-web"
+    "packages/*"
   ]
 }
