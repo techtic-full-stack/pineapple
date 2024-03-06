@@ -5,8 +5,8 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { database } from "~/../firebase";
 
 interface User {
-  uid: string;
-}
+    uid?: string; // Make the uid property optional
+  }
 
 interface UserResponse {
   user: User | null;
