@@ -1,26 +1,7 @@
-import axios from "axios";
-
 /**
  * Add a user to Firestore when they sign up
  */
-// const AddUserToFirestore = functions.region("europe-west1").auth.user().onCreate(async (user) => {
-//   const db = firestore();
-//   const userRef = db.collection("users").doc(user.uid);
-//   const userDoc = await userRef.get();
-//   if (!userDoc.exists) {
-//     await userRef.set({
-//       id: user.uid,
-//       name: user.displayName,
-//       email: user.email,
-//       phoneNumber: user.phoneNumber,
-//       image: user.photoURL,
-//       createdAt: user.metadata.creationTime,
-//       lastSignedInAt: user.metadata.lastSignInTime,
-//     });
-//     logger.info("User added to Firestore", {structuredData: true});
-//   }
-//   return;
-// });
+
 interface UserType {
   uid: string;
   displayName: string;
@@ -33,34 +14,31 @@ interface UserType {
   };
 }
 
+/**
+ * Adds a user to Firestore.
+ * @param {UserType} user - The user object to be added.
+ * @returns {Promise<void>} - A promise that resolves when the user is added successfully.
+ */
 const AddUserToFirestore = async (user: UserType) => {
-  /**
-   * Represents the data to be stored in Firestore.
-   * @typedef {Object} FirestoreData
-   * @property {Object} user - The user object.
-   */
   const data = JSON.stringify({
     user,
   });
 
-  let config = {
-    method: "post",
-    maxBodyLength: Infinity,
-    url: `${process.env.API_URL}/api/add-user`,
+  const config = {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    data: data,
+    body: data,
   };
 
-  axios
-    .request(config)
-    .then((response) => {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  try {
+    const response = await fetch(`${process.env.API_URL}/api/add-user`, config);
+    const responseData = await response.json();
+    console.log(JSON.stringify(responseData));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default AddUserToFirestore;

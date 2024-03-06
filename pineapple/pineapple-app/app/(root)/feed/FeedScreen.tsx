@@ -4,8 +4,8 @@ import { TParty } from "../../../utils/types";
 import { getPartiesByUserId } from "../../../utils/firebase/PartyModeService";
 import MediumPartyCard from "../../../components/Cards/MediumPartyCard";
 import { useAuth } from "../../../utils/contexts/AuthContext";
-import AddUserToFirestore from "../../../functions/src/functions/User/AddUserToFirestore";
 import GetUserToFirestore from "../../../functions/src/functions/User/GetUserToFirestore";
+import AddUserToFirestore from "../../../functions/src/functions/User/AddUserToFirestore";
 
 export default function FeedScreen() {
   const [loading, setLoading] = useState(true);
@@ -29,7 +29,7 @@ export default function FeedScreen() {
 
   useEffect(() => {
     // AddUserToFirestore({
-    //   uid: "35",
+    //   uid: "37",
     //   displayName: "test",
     //   email: "test1223@gmail.com",
     //   phoneNumber: "1234512345",
